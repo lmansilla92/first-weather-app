@@ -5,7 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-        <link rel="stylesheet" href="./assets/css/reset.css">
         <link rel="stylesheet" href="./assets/css/style.css">
     </head>
     <body>
@@ -14,24 +13,77 @@
         </header>
         <div class="container">
             <div class="row">
-              <div class="col-3">
-                <h2></h2>
-                <form action="">
-                    <h2>Search for a City</h2>
-                    <textarea class="col-12" name="" id="" cols="30" rows="1"></textarea>
-                    <button class="col-12">Search</button>
-                </form>
-                <hr>
-                <button class="col-12">Atlanta</button>
-                <button class="col-12">Austin</button>
-              </div>
-              <div class="col-9">.col-9<br>Since 9 + 4 = 13 &gt; 12, this 4-column-wide div gets wrapped onto a new line as one contiguous unit.</div>
-              <div class="col-3">
-
-              </div>
+                <div class="col-3">
+                    <h2></h2>
+                    <form action="">
+                        <h2>Search for a City</h2>
+                        <textarea class="form-control my-2" placeholder="Type City Here" id="floatingTextarea"></textarea>
+                        <button class="col-12 btn btn-primary">Search</button>
+                    </form>
+                    <hr>
+                    <button class="btn btn-secondary col-12 my-2">Atlanta</button>
+                    <button class="btn btn-secondary col-12 my-2">Austin</button>
+                </div>
+                <div class="col-9">
+                    <div class="border p-2">
+                        <h2>Atlanta</h2>
+                        <p>Temp: </p>
+                        <p>Wind: </p>
+                        <p>Humidity: </p>
+                    </div>
+                    <div class="container px-0">
+                        <h3>5-Day Forecoast:</h3>
+                        <div class="row">
+                            <div class="card col px-0 mx-1">
+                                <div class="card-body">
+                                    <h5 class="card-title">Date</h5>
+                                    <img src="..." alt="...">
+                                    <p class="card-text">Temp: </p>
+                                    <p class="card-text">Wind: </p>
+                                    <p class="card-text">Humidity: </p>
+                                </div>
+                            </div>
+                            <div class="card col px-0 mx-1">
+                                <div class="card-body">
+                                    <h5 class="card-title">Date</h5>
+                                    <img src="..." alt="...">
+                                    <p class="card-text">Temp: </p>
+                                    <p class="card-text">Wind: </p>
+                                    <p class="card-text">Humidity: </p>
+                                </div>
+                            </div>
+                            <div class="card col px-0 mx-1">
+                                <div class="card-body">
+                                    <h5 class="card-title">Date</h5>
+                                    <img src="..." alt="...">
+                                    <p class="card-text">Temp: </p>
+                                    <p class="card-text">Wind: </p>
+                                    <p class="card-text">Humidity: </p>
+                                </div>
+                            </div>
+                            <div class="card col px-0 mx-1">
+                                <div class="card-body">
+                                    <h5 class="card-title">Date</h5>
+                                    <img src="..." alt="...">
+                                    <p class="card-text">Temp: </p>
+                                    <p class="card-text">Wind: </p>
+                                    <p class="card-text">Humidity: </p>
+                                </div>
+                            </div>
+                            <div class="card col px-0 mx-1">
+                                <div class="card-body">
+                                    <h5 class="card-title">Date</h5>
+                                    <img src="..." alt="...">
+                                    <p class="card-text">Temp: </p>
+                                    <p class="card-text">Wind: </p>
+                                    <p class="card-text">Humidity: </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        
+        </div>       
         <script src="./assets/js/script.js"></script>
     </body>
 </html>
