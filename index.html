@@ -18,20 +18,24 @@
                     <form action="">
                         <h2>Search for a City</h2>
                         <textarea class="form-control my-2" placeholder="Type City Here" id="floatingTextarea"></textarea>
-                        <button class="col-12 btn btn-primary">Search</button>
+                        <button class="col-12 btn btn-primary search">Search</button>
                     </form>
                     <hr>
                     <button class="btn btn-secondary col-12 my-2">Atlanta</button>
                     <button class="btn btn-secondary col-12 my-2">Austin</button>
                 </div>
-                <div class="col-9">
-                    <div class="border p-2">
-                        <h2>Atlanta</h2>
-                        <p>Temp: </p>
-                        <p>Wind: </p>
-                        <p>Humidity: </p>
+                <div class="col-9 right">
+
+                    <!-- Today's Weather -->
+                    <div class="border p-2 today">
+                        <h2 class="city-name">Atlanta</h2>
+                        <p class="temp-today">Temp: </p>
+                        <p class="wind-today">Wind: </p>
+                        <p class="humidity-today">Humidity: </p>
                     </div>
-                    <div class="container px-0">
+
+                    <!-- 5 Day Forecoast -->
+                    <div class="container px-0">  
                         <h3>5-Day Forecoast:</h3>
                         <div class="row">
                             <div class="card col px-0 mx-1">
