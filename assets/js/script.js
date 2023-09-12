@@ -28,52 +28,49 @@ searchBtn.addEventListener ("click", function(event) {
     }
 });
 
+// Current Weather Fetch
 function getApi() {
     cityNameValue = cityNameInput.value;
-    var requestUrl = 'http://api.openweathermap.org/data/2.5/weather?q=' + cityNameValue + "&appid=" + APIKey;
+    var requestUrl = 'http://api.openweathermap.org/data/2.5/weather?q=' + cityNameValue + "&units=imperial&appid=" + APIKey;
     // fetch request to open weather map
     fetch(requestUrl)
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        console.log(data)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data)
 
+            // Grabs elements to display info from API
+            var cityName = document.querySelector(".city-h2");
+            cityName.textContent = data.name;
 
-          // Grabs elements to display info from API
-          debugger;
-          var cityName = document.querySelector(".city-h2");
-          cityName.textContent = data.name;
+            var date = document.querySelector(".date-today");
+            date.textContent = data.name;
 
-          var tempEl = document.querySelector(".temp-today");
-          tempEl.textContent = "Temp: " + data.main.temp;
+            var tempEl = document.querySelector(".temp-today");
+            tempEl.textContent = "Temp: " + data.main.temp;
 
-          var windEl = document.querySelector(".wind-today");
-          windEl.textContent = "Wind: " + data.wind.speed;
+            var windEl = document.querySelector(".wind-today");
+            windEl.textContent = "Wind: " + data.wind.speed;
 
-          var humidityEl = document.querySelector(".humidity-today");
-          humidityEl.textContent = "Humidity: " + data.main.humidity;
-        }
-      );
-  };
+            var humidityEl = document.querySelector(".humidity-today");
+            humidityEl.textContent = "Humidity: " + data.main.humidity;
 
-//   var cardBody = document.createElement('div');
-//   cardBody.classList.add("border p-2");
-//   var cityName = document.createElement('h2');
-//   cityName.classList.add("cityName");
-//   var tempEl = document.createElement('p');
-//   var windEl = document.createElement('p');
-//   var humidityEl = document.createElement('p');
+            fetchWeather();
 
-  
-          // Appending the link to the tabledata and then appending the tabledata to the tablerow
-          // The tablerow then gets appended to the tablebody
-        //   weatherToday.appendChild(cardBody);
-        //   cardBody.appendChild(cityName);
-        //   cityName.appendChild(tempEl);
-        //   tempEl.appendChild(windEl);
-        //   windEl.appendChild(humdityEl);
+            // 5 Day Forecast Fetch
+            function fetchWeather() {
+                let lat = data.coord.lat
+                let lon = data.coord.lon
+                var requestUrl = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&units=imperial&appid=' + APIKey;
 
-                //Loop over the data to generate a table, each table row will have a link to the repo url
-        // for (var i = 0; i < data.length; i++) {
-          // Creating elements, tablerow, tabledata, and anchor
+                fetch(requestUrl)
+                    .then(function (response) {
+                        return response.json();
+                    })
+                    .then(function (data) {
+                        console.log(data)
+                    });
+            };
+        });
+};
