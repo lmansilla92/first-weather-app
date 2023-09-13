@@ -45,7 +45,7 @@ function getApi() {
             cityName.textContent = data.name;
 
             var date = document.querySelector(".date-today");
-            date.textContent = data.name;
+            date.textContent = data.name; // TODO: need to find date 
 
             var tempEl = document.querySelector(".temp-today");
             tempEl.textContent = "Temp: " + data.main.temp;
@@ -63,13 +63,29 @@ function getApi() {
                 let lat = data.coord.lat
                 let lon = data.coord.lon
                 var requestUrl = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&units=imperial&appid=' + APIKey;
-
                 fetch(requestUrl)
                     .then(function (response) {
                         return response.json();
                     })
                     .then(function (data) {
                         console.log(data)
+                        console.log(data.list[0].dt_txt)
+
+                        for (var i = 0; i < 5; i++) {
+                            debugger;
+                            console.log(i);
+                            let dateEl = document.querySelector(".card-title");
+                            dateEl.textContent = data.list[i].dt_txt;
+
+                            if (weekContainer.style.display === "none") {
+                                weekContainer.style.display = "block";
+                            } else {
+                                null;
+                            }
+
+                        }
+
+
                     });
             };
         });
