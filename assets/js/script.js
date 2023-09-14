@@ -79,11 +79,25 @@ function getApi() {
                         console.log(data)
                         console.log(data.list[0].dt_txt)
 
-                        for (var i = 0; i < 5; i++) {
+                        for (var i = 0; i < 40; i = i + 8) {
                             debugger;
-                            console.log(i);
-                            let dateEl = document.querySelector(".card-title");
-                            dateEl.textContent = data.list[i].dt_txt;
+                            console.log("index is: " + i);
+                            let date = data.list[i].dt_txt;
+                            console.log(date);
+                            
+                            let imgCode = data.list[i].weather[0].icon;
+                            // variables for data from api
+                            var iconUrl = 'https://openweathermap.org/img/w/' + imgCode + '.png';
+                            console.log(iconUrl);
+                            var tempF = data.list[i].main.temp;
+                            console.log(tempF);
+                            var humidity = data.list[i].main.humidity;
+                            console.log(humidity);
+                            var windMph = data.list[i].wind.speed;
+                            console.log(windMph);
+
+                            // let dateEl = document.querySelector(".card-title");
+                            // dateEl.textContent = data.list[i].dt_txt;
 
                             if (weekContainer.style.display === "none") {
                                 weekContainer.style.display = "block";
