@@ -15,6 +15,7 @@ weekContainer.style.display = "none";
 
 
 searchBtn.addEventListener ("click", function(event) {
+    cityNameInput.click();
     // Prevents button from submitting so the code can run and call the getApi function
     event.preventDefault();
     // Calls function that gets API request
