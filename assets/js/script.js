@@ -99,6 +99,15 @@ function getApi() {
                             // let dateEl = document.querySelector(".card-title");
                             // dateEl.textContent = data.list[i].dt_txt;
 
+                            let card = document.createElement("div").classList.add("card", "col", "px-0", "mx-1");
+                            let cardBody = document.createElement("div").classList.add("card-body");
+                            let cardDate = document.createElement("h5").classList.add("card-title");
+                            cardDate.textContent = `Date: ${date}`;
+                            let cardImg = document.createElement("img").src = "";
+                            let cardTemp = document.createElement("p").classList.add("card-text");
+                            let cardWind = document.createElement("p").classList.add("card-text");
+                            let cardHumidity = document.createElement("p").classList.add("card-text");
+
                             if (weekContainer.style.display === "none") {
                                 weekContainer.style.display = "block";
                             } else {
