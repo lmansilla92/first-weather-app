@@ -4,6 +4,7 @@ var searchBtn = document.querySelector(".search");
 const todayContainer = document.querySelector(".today");
 const weekContainer = document.querySelector(".week");
 let cityNameInput = document.querySelector(".city-name");
+let parent = document.querySelector(".parent");
 
 
 // Base URL
@@ -18,6 +19,7 @@ searchBtn.addEventListener ("click", function(event) {
     cityNameInput.click();
     // Prevents button from submitting so the code can run and call the getApi function
     event.preventDefault();
+    parent.textContent = "";
     // Calls function that gets API request
     getApi();
     console.log("button clicked");
@@ -103,16 +105,42 @@ function getApi() {
 
                             if (weekContainer.style.display === "none") {
                                 weekContainer.style.display = "block";
+                            } else {
+                                null;
+                            }
+                                let card = document.createElement("div");
+                                card.classList.add("card", "col", "px-0", "mx-1");
+                                parent.appendChild(card);
 
-                                let card = document.createElement("div").classList.add("card", "col", "px-0", "mx-1");
-                                let cardBody = document.createElement("div").classList.add("card-body");
-                                let cardDate = document.createElement("h5").classList.add("card-title");
+                                let cardBody = document.createElement("div");
+                                cardBody.classList.add("card-body");
+                                card.appendChild(cardBody);
+
+                                let cardDate = document.createElement("h5");
+                                cardDate.classList.add("card-title");
                                 cardDate.textContent = date;
-    
-                                let cardImg = document.createElement("img").src = "";
-                                let cardTemp = document.createElement("p").classList.add("card-text");
-                                let cardWind = document.createElement("p").classList.add("card-text");
-                                let cardHumidity = document.createElement("p").classList.add("card-text");
+                                cardBody.appendChild(cardDate);
+
+                                let cardImg = document.createElement("img")
+                                cardImg.src = iconUrl;
+                                cardBody.appendChild(cardImg);
+
+                                let cardTemp = document.createElement("p");
+                                cardTemp.classList.add("card-text");
+                                cardTemp.textContent = "Temp: " + tempF;
+                                cardBody.appendChild(cardTemp);
+
+                                let cardWind = document.createElement("p");
+                                cardWind.classList.add("card-text");
+                                cardWind.textContent = "Wind: " + windMph;
+                                cardBody.appendChild(cardWind);
+
+                                let cardHumidity = document.createElement("p");
+                                cardHumidity.classList.add("card-text");
+                                cardHumidity.textContent = "Humdity: " + humidity;
+                                cardBody.appendChild(cardHumidity);
+
+
 
                                 // var userName = document.createElement('h3');
                                 // var issueTitle = document.createElement('p');
@@ -121,9 +149,7 @@ function getApi() {
                                 // issueContainer.append(userName);
                                 // issueContainer.append(issueTitle);
 
-                            } else {
-                                null;
-                            }
+
 
                         }
 
