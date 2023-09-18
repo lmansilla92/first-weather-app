@@ -32,29 +32,35 @@ function renderCities(){
     let historyBtn = document.querySelector(".history-btn");
     console.log(cities);
     if (cities !== null && emptyHistory === true){
+        historyContainer.textContent = "";
         emptyHistory = false;
         for (var i = 0; i < cities.length; i++){
             historyBtn = document.createElement("button");
-            historyBtn.classList.add("btn", "btn-secondary", "col-12", "my-2", "history-btn");
-            historyBtn.textContent = cities[i];
-            historyContainer.appendChild(historyBtn); 
-            historyBtn.addEventListener("click", function(event){
-                parent.innerHTML = "";
-                cityNameValue = event.target.textContent;
-                console.log(historyBtn.textContent);
-                console.log(cityNameValue);
-                getApi();
-            })   
+            if (historyBtn.textContent !== `${cityNameValue}` || historyBtn.textContent !== cities[i]){
+                historyBtn.classList.add("btn", "btn-secondary", "col-12", "my-2", "history-btn");
+                historyBtn.textContent = cities[i];
+                historyContainer.appendChild(historyBtn); 
+                historyBtn.addEventListener("click", function(event){
+                    parent.innerHTML = "";
+                    cityNameValue = event.target.textContent;
+                    console.log(historyBtn.textContent);
+                    console.log(cityNameValue);
+                    getApi();
+                });
+            };
         };
     };
 };
 
 function storeCities() {
     for (var i = 0; i < cities.length; i++){
-        if(cityNameInput.value !== cities[i]){
+        console.log(cityNameInput.value);
+        console.log(cities[i]);
+        if(cities.includes(cityNameInput.value)){
+            null;
+        }else{
+            cities.push(cityNameValue);
             localStorage.setItem("cities", JSON.stringify(cities)); //PICK UP HERE
-        } else{
-            return;
         };
     };
 };
@@ -90,12 +96,16 @@ function getApi() {
     if (cityNameInput.value !== "" && cityNameValue === ""){
         cityNameValue = cityNameInput.value.trim();
     } 
-        cities.push(cityNameValue);
-        // cityNameInput.value = "";
+        if(!cities.includes(cityNameValue)){
+            storeCities();
+            // cityNameInput.value = "";
+    
+            console.log(cityNameValue);
+    
+            console.log(cityNameValue);
 
-        console.log(cityNameValue);
+        };
 
-        console.log(cityNameValue);
         var requestUrl = 'http://api.openweathermap.org/data/2.5/weather?q=' + cityNameValue + "&units=imperial&appid=" + APIKey;
         // fetch request to open weather map
         fetch(requestUrl)
@@ -210,6 +220,7 @@ function getApi() {
 
 
                     });
+            
             };
         });
 };
