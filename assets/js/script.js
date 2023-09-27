@@ -116,7 +116,7 @@ searchBtn.addEventListener ("click", function(event) {
 
 // Calls a function that gets the current weather
 function getCurrentWeather() {
-        var requestUrl = `http://api.openweathermap.org/data/2.5/weather?q=${cityNameValue}&units=imperial&appid=${APIKey}`;
+        var requestUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityNameValue}&units=imperial&appid=${APIKey}`;
         // fetch request to open weather map
         fetch(requestUrl)
             .then(function (response) {
@@ -206,7 +206,7 @@ function storeCities() {
 
 // 5 Day Forecast Fetch
 function get5DayWeather() {
-    var requestUrl = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${APIKey}`;
+    var requestUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${APIKey}`;
     fetch(requestUrl)
         .then(function (response) {
             // Checks if fetch was successful

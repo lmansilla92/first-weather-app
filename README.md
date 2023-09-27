@@ -33,7 +33,7 @@ If you need help on how to clone a GitHub repository into your local repository,
 Deployed Screenshot:
     ![First Weather App](assets/images/first-weather-app.png)
 
-To view the deployed webpage click the following link: [Deployed Webpage](https://lmansilla92.github.io/coding-quiz-challenge)
+To view the deployed webpage click the following link: [Deployed Webpage](https://lmansilla92.github.io/first-weather-app/)
 
 ## Changes
 
