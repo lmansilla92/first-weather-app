@@ -6,3 +6,9 @@ textarea{
     resize: none;
     height: 30px;
 }
+
+/* Styles clear history button */
+.clear {
+    margin-top: 5px;
+    color: white;
+}
